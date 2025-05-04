@@ -7,7 +7,7 @@ public class Material
     public string Title { get; private set; }
 
     
-    private Material(MaterialId id, string title)
+    public Material(MaterialId id, string title)
     {
         Id = id;
         Title = title;

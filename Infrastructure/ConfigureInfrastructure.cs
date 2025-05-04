@@ -1,5 +1,13 @@
-﻿namespace Infrastructure;
+﻿using Infrastructure.Persistence;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
-public class ConfigureInfrastructure
+namespace Infrastructure;
+
+public static class ConfigureInfrastructure
 {
+    public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddPersistence(configuration);
+    }
 }

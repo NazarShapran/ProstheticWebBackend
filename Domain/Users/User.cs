@@ -13,7 +13,7 @@ public class User
     public Role? Role { get; private set; }
     public RoleId RoleId { get;  private set; }
 
-    private User(UserId id, string fullName, string email, string password, RoleId roleId, 
+    public User(UserId id, string fullName, string email, string password, RoleId roleId, 
         string phoneNumber, DateTime birthDate)
     {
         Id = id;

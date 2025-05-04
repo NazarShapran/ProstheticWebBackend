@@ -7,13 +7,13 @@ namespace Domain.Prosthetics;
 
 public class Prosthetic
 {
-    public ProstheticId Id { get; set; }
+    public ProstheticId Id { get;  }
     public string Title { get; private set; }
     public string Description { get; private set; }
     public double Weight { get; private set; }
     
     public TypeId TypeId { get; }
-    public Type? Type { get;  }
+    public ProstheticType? Type { get;  }
     
     public MaterialId MaterialId { get; }
     public Material? Material { get; }
@@ -21,7 +21,7 @@ public class Prosthetic
     public FunctionalityId FunctionalityId { get; }
     public Functionality? Functionality { get; }
     
-    private Prosthetic(ProstheticId id, string title, string description, double weight, 
+    public Prosthetic(ProstheticId id, string title, string description, double weight, 
         TypeId typeId, MaterialId materialId, FunctionalityId functionalityId)
     {
         Id = id;

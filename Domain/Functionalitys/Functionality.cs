@@ -2,12 +2,12 @@
 
 public class Functionality
 {
-    public FunctionalityId Id { get; }
+    public FunctionalityId Id { get;}
     
     public string Title { get; private set; }
 
     
-    private Functionality(FunctionalityId id, string title)
+    public Functionality(FunctionalityId id, string title)
     {
         Id = id;
         Title = title;

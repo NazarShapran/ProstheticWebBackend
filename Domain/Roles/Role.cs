@@ -5,7 +5,7 @@ public class Role
     public RoleId Id { get; }
     public string Title { get; private set; }
 
-    private Role(RoleId id, string title)
+    public Role(RoleId id, string title)
     {
         Id = id;
         Title = title;

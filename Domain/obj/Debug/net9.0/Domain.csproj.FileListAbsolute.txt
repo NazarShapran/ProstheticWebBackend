@@ -1,0 +1,12 @@
+D:\prosthetic web\ProstheticWebBackend\Domain\bin\Debug\net9.0\Domain.deps.json
+D:\prosthetic web\ProstheticWebBackend\Domain\bin\Debug\net9.0\Domain.dll
+D:\prosthetic web\ProstheticWebBackend\Domain\bin\Debug\net9.0\Domain.pdb
+D:\prosthetic web\ProstheticWebBackend\Domain\obj\Debug\net9.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\prosthetic web\ProstheticWebBackend\Domain\obj\Debug\net9.0\Domain.AssemblyInfoInputs.cache
+D:\prosthetic web\ProstheticWebBackend\Domain\obj\Debug\net9.0\Domain.AssemblyInfo.cs
+D:\prosthetic web\ProstheticWebBackend\Domain\obj\Debug\net9.0\Domain.csproj.CoreCompileInputs.cache
+D:\prosthetic web\ProstheticWebBackend\Domain\obj\Debug\net9.0\Domain.sourcelink.json
+D:\prosthetic web\ProstheticWebBackend\Domain\obj\Debug\net9.0\Domain.dll
+D:\prosthetic web\ProstheticWebBackend\Domain\obj\Debug\net9.0\refint\Domain.dll
+D:\prosthetic web\ProstheticWebBackend\Domain\obj\Debug\net9.0\Domain.pdb
+D:\prosthetic web\ProstheticWebBackend\Domain\obj\Debug\net9.0\ref\Domain.dll

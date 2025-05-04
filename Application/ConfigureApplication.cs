@@ -1,5 +1,19 @@
-﻿namespace Application;
+﻿using System.Reflection;
+using Application.Common.Behaviours;
+using FluentValidation;
+using MediatR;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
-public class ConfigureApplication
+namespace Application;
+
+public static class ConfigureApplication
 {
+    public static void AddApplication(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+        services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+
+    }
 }

@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0-preview1" />
+      <PackageReference Include="MediatR" Version="12.5.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0-preview.3.25171.5" />
+      <PackageReference Include="Optional" Version="5.0.0-alpha" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Application\" />
+      <Folder Include="Functionality\" />
+      <Folder Include="Material\" />
+      <Folder Include="Prosthetic\" />
+      <Folder Include="Reviews\" />
+      <Folder Include="Roles\" />
+      <Folder Include="Type\" />
+      <Folder Include="User\" />
+    </ItemGroup>
+
+</Project>

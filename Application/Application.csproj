@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0-preview1" />
+      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.2" />
       <PackageReference Include="MediatR" Version="12.5.0" />
       <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.0" />
       <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.4" />
@@ -17,12 +17,10 @@
 
     <ItemGroup>
       <Folder Include="Request\" />
-      <Folder Include="Functionality\" />
-      <Folder Include="Material\" />
       <Folder Include="Prosthetic\" />
       <Folder Include="Reviews\" />
       <Folder Include="Roles\" />
-      <Folder Include="Type\" />
+      <Folder Include="Statuses\" />
       <Folder Include="User\" />
     </ItemGroup>
 

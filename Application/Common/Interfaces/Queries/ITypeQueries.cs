@@ -1,7 +1,6 @@
-﻿using Domain.Types;
-using Optional;
-
+﻿using Optional;
 namespace Application.Common.Interfaces.Queries;
+using Domain.ProstheticTypes;
 
 public interface ITypeQueries
 {

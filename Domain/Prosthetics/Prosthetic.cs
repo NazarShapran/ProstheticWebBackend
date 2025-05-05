@@ -1,6 +1,6 @@
-﻿using Domain.Functionalitys;
+﻿using Domain.Functionalities;
 using Domain.Materials;
-using Domain.Types;
+using Domain.ProstheticTypes;
 using Type = System.Type;
 
 namespace Domain.Prosthetics;

@@ -1,13 +1,13 @@
 ﻿using System.Reflection;
-using Domain.Functionalitys;
+using Domain.Functionalities;
 using Domain.Materials;
 using Microsoft.EntityFrameworkCore;
 using Domain.Prosthetics;
+using Domain.ProstheticTypes;
 using Domain.Request;
 using Domain.Reviews;
 using Domain.Roles;
 using Domain.Statuses;
-using Domain.Types;
 using Domain.Users;
 
 namespace Infrastructure.Persistence;

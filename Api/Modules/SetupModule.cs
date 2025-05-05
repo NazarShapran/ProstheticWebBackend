@@ -10,8 +10,6 @@ public static class SetupModule
     {
         services.AddValidators();
     }
-    
-    
 
     private static void AddValidators(this IServiceCollection services)
     {

@@ -1,5 +1,4 @@
 ﻿using Domain.Prosthetics;
-using Domain.Types;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

@@ -1,6 +1,6 @@
 ﻿using Application.Common.Interfaces.Queries;
 using Application.Common.Interfaces.Repositories;
-using Domain.Functionalitys;
+using Domain.Functionalities;
 using Microsoft.EntityFrameworkCore;
 using Optional;
 

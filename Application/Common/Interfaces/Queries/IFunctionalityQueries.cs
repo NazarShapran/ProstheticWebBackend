@@ -1,6 +1,5 @@
-﻿using Domain.Functionalitys;
-
-namespace Application.Common.Interfaces.Queries;
+﻿namespace Application.Common.Interfaces.Queries;
+using Domain.Functionalities;
 
 public interface IFunctionalityQueries
 {

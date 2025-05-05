@@ -1,7 +1,6 @@
-using Infrastructure;
-using Application;
 using Api.Modules;
-using Infrastructure.Persistence;
+using Application;
+using Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,4 +42,7 @@ app.UseAuthorization();
 
 app.Run();
 
-public partial class Program;
+namespace Api
+{
+    public partial class Program;
+}

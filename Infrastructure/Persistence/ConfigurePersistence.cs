@@ -1,13 +1,11 @@
 ﻿using Application.Common.Interfaces.Queries;
 using Application.Common.Interfaces.Repositories;
-using Domain.Functionalitys;
 using Domain.Materials;
 using Domain.Prosthetics;
 using Domain.Request;
 using Domain.Reviews;
 using Domain.Roles;
 using Domain.Statuses;
-using Domain.Types;
 using Domain.Users;
 using Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;

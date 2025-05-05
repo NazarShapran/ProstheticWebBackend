@@ -1,4 +1,4 @@
-﻿using Domain.Functionalitys;
+﻿using Domain.Functionalities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

@@ -1,4 +1,4 @@
-﻿namespace Domain.Functionalitys;
+﻿namespace Domain.Functionalities;
 
 public class Functionality
 {

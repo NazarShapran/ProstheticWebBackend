@@ -1,6 +1,5 @@
-﻿using Domain.Materials;
-
-namespace Application.Common.Interfaces.Queries;
+﻿namespace Application.Common.Interfaces.Queries;
+using Domain.Materials;
 
 public interface IMaterialQueries
 {

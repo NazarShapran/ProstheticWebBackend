@@ -1,4 +1,4 @@
-﻿namespace Domain.Types;
+﻿namespace Domain.ProstheticTypes;
 
 public record TypeId(Guid Value)
 {

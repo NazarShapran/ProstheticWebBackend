@@ -1,8 +1,7 @@
-﻿
-using Domain.Materials;
+﻿namespace Application.Common.Interfaces.Repositories;
 using Optional;
+using Domain.Materials;
 
-namespace Application.Common.Interfaces.Repositories;
 
 public interface IMaterialRepository
 {

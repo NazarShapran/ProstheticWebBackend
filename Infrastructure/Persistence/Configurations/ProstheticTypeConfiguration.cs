@@ -1,4 +1,4 @@
-﻿using Domain.Types;
+﻿using Domain.ProstheticTypes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

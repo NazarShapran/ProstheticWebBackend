@@ -12,7 +12,7 @@ public class Request
     public User? User { get;  }
     public ProstheticId ProstheticId { get; }
     public Prosthetic? Prosthetic { get; }
-    public StatusId StatusId { get;  }
+    public StatusId StatusId { get;  private set;}
     public Status? Status { get;  }
 
     public Request(RequestId id, string description, UserId userId, ProstheticId prostheticId,
@@ -31,5 +31,10 @@ public class Request
     public void UpdateDetails(string description, UserId userId, ProstheticId prostheticId, StatusId statusId)
     {
         Description = description;
+    }
+    
+    public void ChangeStatus(StatusId statusId)
+    {
+        StatusId = statusId;
     }
 }

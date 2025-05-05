@@ -55,6 +55,16 @@ public class StatusRepository(ApplicationDbContext context): IStatusRepository, 
         await context.SaveChangesAsync(cancellationToken);
         return status;
     }
+
+    public async Task<Option<Status>> SearchByTitle(string title, CancellationToken cancellationToken)
+    {
+        var entity = await context.Statuses
+            .AsNoTracking()
+            .FirstOrDefaultAsync(x => x.Title == title, cancellationToken);
+
+        return entity == null ? Option.None<Status>() : Option.Some(entity);
+    }
+
     public async Task<Status> Delete(Status status, CancellationToken cancellationToken)
     {
         context.Statuses.Remove(status);

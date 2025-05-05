@@ -1,7 +1,7 @@
-﻿using Domain.Types;
+﻿namespace Application.Common.Interfaces.Repositories;
+using Domain.ProstheticTypes;
 using Optional;
 
-namespace Application.Common.Interfaces.Repositories;
 
 public interface ITypeRepository
 {

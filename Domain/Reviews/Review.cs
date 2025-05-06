@@ -15,7 +15,7 @@ public class Review
     public ProstheticId ProstheticId { get; }
     public Prosthetic? Prosthetic { get; }
     
-    public Review(ReviewId id, string description, string pros, string cons, UserId userId, ProstheticId prostheticId, DateTime date)
+    public Review(ReviewId id, string description, string pros, string cons, UserId userId, ProstheticId prostheticId)
     {
         Id = id;
         Description = description;
@@ -23,10 +23,10 @@ public class Review
         Cons = cons;
         UserId = userId;
         ProstheticId = prostheticId;
-        Date = date;
+        Date = DateTime.UtcNow;
     }
-    public static Review New(ReviewId id, string description, string pros, string cons, UserId userId, ProstheticId prostheticId, DateTime date)
-        => new(id, description, pros, cons, userId, prostheticId, date);
+    public static Review New(ReviewId id, string description, string pros, string cons, UserId userId, ProstheticId prostheticId)
+        => new(id, description, pros, cons, userId, prostheticId);
     
     public void UpdateDetails(string description, string pros, string cons)
     {

@@ -1,0 +1,64 @@
+
+## Build results
+bin/
+obj/
+out/
+**/bin/
+**/obj/
+
+## User-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+## Visual Studio Code
+.vscode/
+.vscode/*.code-workspace
+
+## Rider / JetBrains
+.idea/
+*.sln.iml
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## Logs
+*.log
+
+## Entity Framework
+Migrations/
+
+## ASP.NET secrets
+secrets.json
+
+## dotnet tools
+/.dotnet_tool/
+
+## NuGet
+*.nupkg
+*.snupkg
+.nuget/
+
+## VS Code debug configs
+.vscode/launch.json
+.vscode/tasks.json
+
+## Others
+*.vspscc
+*.vssscc
+_ReSharper.*
+*.resharper.user
+
+## Test results
+TestResults/
+*.coverage
+*.coveragexml
+*.testsettings
+*.vsmdi
+*.vsp
+*.vspx
+
+## Publish outputs
+publish/

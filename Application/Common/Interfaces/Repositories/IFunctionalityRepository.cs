@@ -1,6 +1,7 @@
-﻿using Optional;
-using Domain.Functionalities;
+﻿using Domain.Functionalities;
+using Optional;
 
+namespace Application.Common.Interfaces.Repositories;
 
 public interface IFunctionalityRepository
 {

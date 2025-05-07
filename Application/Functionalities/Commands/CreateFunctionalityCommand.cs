@@ -1,4 +1,5 @@
 ﻿using Application.Common;
+using Application.Common.Interfaces.Repositories;
 using Application.Functionalities.Exceptions;
 using Domain.Functionalities;
 using MediatR;

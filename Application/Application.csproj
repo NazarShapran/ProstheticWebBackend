@@ -19,7 +19,6 @@
       <Folder Include="Prosthetic\" />
       <Folder Include="Roles\" />
       <Folder Include="Statuses\" />
-      <Folder Include="User\" />
     </ItemGroup>
 
     <ItemGroup>

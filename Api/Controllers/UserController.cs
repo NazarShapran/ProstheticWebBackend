@@ -5,13 +5,14 @@ using Application.Common.Interfaces.Repositories;
 using Application.Users.Commands;
 using Domain.Users;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers;
 
 [Route("user")]
 [ApiController]
-
+//[Authorize]
 public class UserController(ISender sender, IUserRepository userRepository, IUserQueries userQueries) : ControllerBase
 {
     [HttpGet("list")]

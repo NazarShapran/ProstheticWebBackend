@@ -3,13 +3,16 @@ using Api.Modules.Errors;
 using Application.Common.Interfaces.Queries;
 using Application.Requests.Commands;
 using Domain.Request;
+using Domain.Users;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers;
 
 [Route("Request")]
 [ApiController]
+//[Authorize]
 
 public class RequestController(ISender sender, IRequestQueries requestQueries) : ControllerBase
 {
@@ -28,6 +31,13 @@ public class RequestController(ISender sender, IRequestQueries requestQueries) :
             f => RequestDto.FromDomainModel(f),
             () => NotFound()
         );
+    }
+    
+    [HttpGet("getByUserId/{userId:guid}")]
+    public async Task<ActionResult<IReadOnlyList<RequestDto>>> GetByUserId([FromRoute] Guid userId, CancellationToken cancellationToken)
+    {
+        var request = await requestQueries.SearchByUserId(new UserId(userId), cancellationToken);
+        return request.Select(RequestDto.FromDomainModel).ToList();
     }
     
     [HttpPost("create")]

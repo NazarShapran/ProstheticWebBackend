@@ -29,8 +29,8 @@ public class TokenGenerator: ITokenGenerator
         {
             Subject = new ClaimsIdentity(claims),
             Expires = DateTime.UtcNow.AddHours(1),
-            Issuer = "https://localhost:7144",
-            Audience = "https://localhost:7144",
+            Issuer = "https://localhost:5094",
+            Audience = "https://localhost:5094",
             SigningCredentials =
                 new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
         };

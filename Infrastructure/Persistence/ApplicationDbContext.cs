@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Domain.AmputationLevels;
 using Domain.Functionalities;
 using Domain.Materials;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<Material> Materials { get; set; }
     public DbSet<ProstheticType> ProstheticTypes { get; set; }
     public DbSet<Functionality> Functionalities { get; set; }
+    public DbSet<AmputationLevel> AmputationLevels { get; set; }
     
     protected override void OnModelCreating(ModelBuilder builder)
     {

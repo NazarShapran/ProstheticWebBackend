@@ -1,4 +1,5 @@
 ﻿using Domain.Request;
+using Domain.Users;
 using Optional;
 
 namespace Application.Common.Interfaces.Repositories;

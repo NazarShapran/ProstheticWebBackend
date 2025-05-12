@@ -72,5 +72,11 @@ public static class ConfigurePersistence
         services.AddScoped<ReviewRepository>();
         services.AddScoped<IReviewRepository>(provider => provider.GetRequiredService<ReviewRepository>());
         services.AddScoped<IReviewQueries>(provider => provider.GetRequiredService<ReviewRepository>());
+        
+        services.AddScoped<AmputationLevelRepository>();
+        services.AddScoped<IAmputationLevelRepository>(provider => provider.GetRequiredService<AmputationLevelRepository>());
+        services.AddScoped<IAmputationLevelQueries>(provider => provider.GetRequiredService<AmputationLevelRepository>());
+        
+        services.AddScoped<Seeder>();
     }
 }

@@ -4,6 +4,7 @@ using Application.Common.Interfaces.Queries;
 using Application.Reviews.Commands;
 using Domain.Reviews;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers;
@@ -31,6 +32,7 @@ public class ReviewController(ISender sender, IReviewQueries reviewQueries) : Co
     }
     
     [HttpPost("create")]
+    [Authorize]
     public async Task<ActionResult<ReviewDto>> Create([FromBody] ReviewDto request, CancellationToken cancellationToken)
     {
         var input = new CreateReviewCommand

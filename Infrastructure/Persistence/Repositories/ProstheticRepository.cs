@@ -11,6 +11,10 @@ public class ProstheticRepository(ApplicationDbContext context) : IProstheticRep
     public async Task<IReadOnlyList<Prosthetic>> GetAll(CancellationToken cancellationToken)
     {
         return await context.Prosthetics
+            .Include(t => t.Type)
+            .Include(m => m.Material)
+            .Include(f => f.Functionality)
+            .Include(a => a.AmputationLevel)
             .AsNoTracking()
             .ToListAsync(cancellationToken);
     }
@@ -18,6 +22,10 @@ public class ProstheticRepository(ApplicationDbContext context) : IProstheticRep
     public async Task<Option<Prosthetic>> SearchByTitle(string title, CancellationToken cancellationToken)
     {
         var entity = await context.Prosthetics
+            .Include(t => t.Type)
+            .Include(m => m.Material)
+            .Include(f => f.Functionality)
+            .Include(a => a.AmputationLevel)
             .AsNoTracking()
             .FirstOrDefaultAsync(x => x.Title == title, cancellationToken);
 
@@ -27,6 +35,10 @@ public class ProstheticRepository(ApplicationDbContext context) : IProstheticRep
     public async Task<Option<Prosthetic>> GetById(ProstheticId id, CancellationToken cancellationToken)
     {
         var entity = await context.Prosthetics
+            .Include(t => t.Type)
+            .Include(m => m.Material)
+            .Include(f => f.Functionality)
+            .Include(a => a.AmputationLevel)
             .AsNoTracking()
             .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 

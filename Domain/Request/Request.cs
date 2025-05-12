@@ -8,6 +8,7 @@ public class Request
 {
     public RequestId Id { get; }
     public string Description { get; private set; }
+    public DateTime CreatedAt { get; } = DateTime.UtcNow;
     public UserId UserId { get; }
     public User? User { get;  }
     public ProstheticId ProstheticId { get; }
@@ -21,7 +22,7 @@ public class Request
         Description = description;
         UserId = userId;
         ProstheticId = prostheticId;
-        StatusId = StatusId.FromString("f80ba821-8bec-4948-a3e5-2c6722dc3d13");
+        StatusId = StatusId.FromString("fcbc4de6-1457-4be0-bbf6-b34f6a456866");
     }
     public static Request New(RequestId id, string description, UserId userId, ProstheticId prostheticId)
         => new(id, description, userId, prostheticId);

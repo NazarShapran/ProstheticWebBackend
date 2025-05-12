@@ -1,6 +1,7 @@
 ﻿using Application.Common.Interfaces.Queries;
 using Application.Common.Interfaces.Repositories;
 using Domain.Request;
+using Domain.Users;
 using Microsoft.EntityFrameworkCore;
 using Optional;
 
@@ -14,7 +15,17 @@ public class RequestRepository(ApplicationDbContext context) : IRequestRepositor
             .AsNoTracking()
             .ToListAsync(cancellationToken);
     }
-    
+
+    public async Task<IReadOnlyList<Request>> SearchByUserId(UserId userId, CancellationToken cancellationToken)
+    {
+        return await context.Requests
+            .Include(p => p.Prosthetic)
+            .Include(s => s.Status)
+            .AsNoTracking()
+            .Where(r => r.UserId == userId)
+            .ToListAsync(cancellationToken);
+    }
+
     public async Task<Option<Request>> GetById(RequestId id, CancellationToken cancellationToken)
     {
         var entity = await context.Requests

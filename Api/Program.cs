@@ -33,7 +33,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
+await app.InitialiseDb();
 app.MapControllers();
 
 app.UseCors("AllowOrigin");

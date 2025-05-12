@@ -28,6 +28,12 @@ public class ProstheticConfiguration : IEntityTypeConfiguration<Prosthetic>
             .HasConstraintName("FK_Prosthetics_Materials")
             .OnDelete(DeleteBehavior.Restrict);
         
+        builder.HasOne(x => x.AmputationLevel)
+            .WithMany()
+            .HasForeignKey(x => x.AmputationLevelId)
+            .HasConstraintName("FK_Prosthetics_AmputationLevels")
+            .OnDelete(DeleteBehavior.Restrict);
+        
         builder.HasOne(x => x.Type)
             .WithMany()
             .HasForeignKey(x => x.TypeId)

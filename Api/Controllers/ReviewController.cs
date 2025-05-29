@@ -2,6 +2,7 @@
 using Api.Modules.Errors;
 using Application.Common.Interfaces.Queries;
 using Application.Reviews.Commands;
+using Domain.Prosthetics;
 using Domain.Reviews;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -31,9 +32,15 @@ public class ReviewController(ISender sender, IReviewQueries reviewQueries) : Co
         );
     }
     
+    [HttpGet("getAllByProstheticId/{prostheticId:guid}")]
+    public async Task<ActionResult<IReadOnlyList<ReviewDto>>> GetAllByProstheticId([FromRoute] Guid prostheticId, CancellationToken cancellationToken)
+    {
+        var review = await reviewQueries.GetAllByProstheticId(new ProstheticId(prostheticId), cancellationToken);
+        return review.Select(ReviewDto.FromDomainModel).ToList();
+    }
+    
     [HttpPost("create")]
-    [Authorize]
-    public async Task<ActionResult<ReviewDto>> Create([FromBody] ReviewDto request, CancellationToken cancellationToken)
+    public async Task<ActionResult<CreateReviewDto>> Create([FromBody] CreateReviewDto request, CancellationToken cancellationToken)
     {
         var input = new CreateReviewCommand
         {
@@ -46,8 +53,8 @@ public class ReviewController(ISender sender, IReviewQueries reviewQueries) : Co
         
         var result = await sender.Send(input, cancellationToken);
         
-        return result.Match<ActionResult<ReviewDto>>(
-            f => ReviewDto.FromDomainModel(f),
+        return result.Match<ActionResult<CreateReviewDto>>(
+            f => CreateReviewDto.FromDomainModel(f),
             e => e.ToObjectResult());
     }
 }

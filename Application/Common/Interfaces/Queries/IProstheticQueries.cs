@@ -5,6 +5,6 @@ namespace Application.Common.Interfaces.Queries;
 
 public interface IProstheticQueries
 {
-    Task<IReadOnlyList<Prosthetic>> GetAll(CancellationToken cancellationToken);
+    Task<(IReadOnlyList<Prosthetic> Items, int TotalCount)> GetAllPaged(int page, int pageSize, CancellationToken cancellationToken);
     Task<Option<Prosthetic>> GetById(ProstheticId id, CancellationToken cancellationToken);
 }

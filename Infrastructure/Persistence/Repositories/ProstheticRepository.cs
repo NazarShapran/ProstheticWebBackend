@@ -8,15 +8,24 @@ namespace Infrastructure.Persistence.Repositories;
 
 public class ProstheticRepository(ApplicationDbContext context) : IProstheticRepository, IProstheticQueries
 {
-    public async Task<IReadOnlyList<Prosthetic>> GetAll(CancellationToken cancellationToken)
+    public async Task<(IReadOnlyList<Prosthetic> Items, int TotalCount)> GetAllPaged(int page, int pageSize, CancellationToken cancellationToken)
     {
-        return await context.Prosthetics
+        var query = context.Prosthetics
             .Include(t => t.Type)
             .Include(m => m.Material)
             .Include(f => f.Functionality)
             .Include(a => a.AmputationLevel)
-            .AsNoTracking()
+            .Include(s => s.Status)
+            .AsNoTracking();
+
+        var totalCount = await query.CountAsync(cancellationToken);
+
+        var items = await query
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
             .ToListAsync(cancellationToken);
+
+        return (items, totalCount);
     }
 
     public async Task<Option<Prosthetic>> SearchByTitle(string title, CancellationToken cancellationToken)
@@ -26,6 +35,7 @@ public class ProstheticRepository(ApplicationDbContext context) : IProstheticRep
             .Include(m => m.Material)
             .Include(f => f.Functionality)
             .Include(a => a.AmputationLevel)
+            .Include(s => s.Status)
             .AsNoTracking()
             .FirstOrDefaultAsync(x => x.Title == title, cancellationToken);
 
@@ -39,6 +49,7 @@ public class ProstheticRepository(ApplicationDbContext context) : IProstheticRep
             .Include(m => m.Material)
             .Include(f => f.Functionality)
             .Include(a => a.AmputationLevel)
+            .Include(s => s.Status)
             .AsNoTracking()
             .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 

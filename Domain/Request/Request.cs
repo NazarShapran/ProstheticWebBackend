@@ -22,7 +22,7 @@ public class Request
         Description = description;
         UserId = userId;
         ProstheticId = prostheticId;
-        StatusId = StatusId.FromString("fcbc4de6-1457-4be0-bbf6-b34f6a456866");
+        StatusId = StatusId.FromString("78b632c3-c188-48ce-893f-d4f0afba168f");
     }
     public static Request New(RequestId id, string description, UserId userId, ProstheticId prostheticId)
         => new(id, description, userId, prostheticId);

@@ -82,4 +82,39 @@ public class UserController(ISender sender, IUserRepository userRepository, IUse
             u => UserDto.FromDomainModel(u),
             e => e.ToObjectResult());
     }
+    
+    [HttpPut("update-password/{userId:guid}")]
+    public async Task<ActionResult<UserDto>> UpdatePassword([FromBody] UpdateUserPasswordDto request, CancellationToken cancellationToken)
+    {
+        var input = new UpdateUserPasswordCommand()
+        {
+            UserId = request.UserId,
+            Password = request.Password
+        };
+        
+        var result = await sender.Send(input, cancellationToken);
+        
+        return result.Match<ActionResult<UserDto>>(
+            u => UserDto.FromDomainModel(u),
+            e => e.ToObjectResult());
+    }
+    
+    [HttpPut("update-details")]
+    public async Task<ActionResult<UpdateUserDto>> UpdateDetails([FromBody] UpdateUserDto request, CancellationToken cancellationToken)
+    {
+        var input = new UpdateUserDetailsCommand()
+        {
+            UserId = request.UserId!.Value,
+            FullName = request.FullName,
+            Email = request.Email,
+            PhoneNumber = request.PhoneNumber,
+            BirthDate = request.BirthDate
+        };
+        
+        var result = await sender.Send(input, cancellationToken);
+        
+        return result.Match<ActionResult<UpdateUserDto>>(
+            u => UpdateUserDto.FromDomainModel(u),
+            e => e.ToObjectResult());
+    }
 }

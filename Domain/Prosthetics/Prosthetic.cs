@@ -1,6 +1,7 @@
 ﻿using Domain.AmputationLevels;
 using Domain.Functionalities;
 using Domain.Materials;
+using Domain.ProstheticStatuses;
 using Domain.ProstheticTypes;
 
 namespace Domain.Prosthetics;
@@ -24,8 +25,12 @@ public class Prosthetic
     public AmputationLevelId? AmputationLevelId { get; }
     public AmputationLevel? AmputationLevel { get;  }
     
+    public ProstheticStatusId StatusId { get; private set; }
+    public ProstheticStatus? Status { get; }
+    
     public Prosthetic(ProstheticId id, string title, string description, double weight, 
-        TypeId typeId, MaterialId materialId, FunctionalityId functionalityId, AmputationLevelId amputationLevelId)
+        TypeId typeId, MaterialId materialId, FunctionalityId functionalityId, 
+        AmputationLevelId amputationLevelId, ProstheticStatusId statusId)
     {
         Id = id;
         Title = title;
@@ -35,11 +40,13 @@ public class Prosthetic
         MaterialId = materialId;
         FunctionalityId = functionalityId;
         AmputationLevelId = amputationLevelId;
+        StatusId = statusId;
     }
     
     public static Prosthetic New(ProstheticId id, string title, string description, double weight, 
-        TypeId typeId, MaterialId materialId, FunctionalityId functionalityId, AmputationLevelId amputationLevelId)
-        => new(id, title, description, weight, typeId, materialId, functionalityId, amputationLevelId);
+        TypeId typeId, MaterialId materialId, FunctionalityId functionalityId, 
+        AmputationLevelId amputationLevelId, ProstheticStatusId statusId)
+        => new(id, title, description, weight, typeId, materialId, functionalityId, amputationLevelId, statusId);
 
     public void UpdateDetails(string title, string description, double weight)
     {
@@ -48,4 +55,8 @@ public class Prosthetic
         Weight = weight;
     }
     
+    public void UpdateStatus(ProstheticStatusId statusId)
+    {
+        StatusId = statusId;
+    }
 }

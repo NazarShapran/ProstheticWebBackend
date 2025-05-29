@@ -77,6 +77,10 @@ public static class ConfigurePersistence
         services.AddScoped<IAmputationLevelRepository>(provider => provider.GetRequiredService<AmputationLevelRepository>());
         services.AddScoped<IAmputationLevelQueries>(provider => provider.GetRequiredService<AmputationLevelRepository>());
         
+        services.AddScoped<ProstheticStatusRepository>();
+        services.AddScoped<IProstheticStatusRepository>(provider => provider.GetRequiredService<ProstheticStatusRepository>());
+        services.AddScoped<IProstheticStatusQueries>(provider => provider.GetRequiredService<ProstheticStatusRepository>());
+        
         services.AddScoped<Seeder>();
     }
 }

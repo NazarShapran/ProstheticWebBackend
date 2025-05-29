@@ -12,10 +12,20 @@ namespace Api.Controllers;
 public class ProstheticController(ISender sender, IProstheticQueries prostheticQueries) : ControllerBase
 {
     [HttpGet("list")]
-    public async Task<ActionResult<IReadOnlyList<ProstheticDto>>> GetAll(CancellationToken cancellationToken)
+    public async Task<ActionResult<PaginatedResult<ProstheticDto>>> GetAll(
+        [FromQuery] int page = 1, 
+        [FromQuery] int pageSize = 6,
+        CancellationToken cancellationToken = default)
     {
-        var prosthetics = await prostheticQueries.GetAll(cancellationToken);
-        return prosthetics.Select(ProstheticDto.FromDomainModel).ToList();
+        var (items, totalCount) = await prostheticQueries.GetAllPaged(page, pageSize, cancellationToken);
+
+        var result = new PaginatedResult<ProstheticDto>
+        {
+            Items = items.Select(ProstheticDto.FromDomainModel).ToList(),
+            TotalCount = totalCount
+        };
+
+        return Ok(result);
     }
     
     [HttpGet("get/{prostheticId:guid}")]

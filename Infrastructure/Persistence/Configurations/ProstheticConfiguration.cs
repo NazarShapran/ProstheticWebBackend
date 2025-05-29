@@ -46,5 +46,11 @@ public class ProstheticConfiguration : IEntityTypeConfiguration<Prosthetic>
             .HasForeignKey(x => x.FunctionalityId)
             .HasConstraintName("FK_Prosthetics_Functionalities")
             .OnDelete(DeleteBehavior.Restrict);
+
+        builder.HasOne(x => x.Status)
+            .WithMany()
+            .HasForeignKey(x => x.StatusId)
+            .HasConstraintName("FK_Prosthetics_Statuses")
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

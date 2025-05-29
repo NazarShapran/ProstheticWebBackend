@@ -1,6 +1,7 @@
 ﻿using Api.Dtos.AmputationLevelDtos;
 using Api.Dtos.FunctionalityDtos;
 using Api.Dtos.MaterialDtos;
+using Api.Dtos.ProstheticStatusDtos;
 using Api.Dtos.TypeDtos;
 
 namespace Api.Dtos.ProstheticDtos;
@@ -17,7 +18,9 @@ public record ProstheticDto(
     Guid FunctionalityId,
     FunctionalityDto? Functionality,
     Guid? AmputationLevelId,
-    AmputationLevelDto? AmputationLevel
+    AmputationLevelDto? AmputationLevel,
+    Guid StatusId,
+    ProstheticStatusDto? Status
     )
 {
     public static ProstheticDto FromDomainModel(Domain.Prosthetics.Prosthetic prosthetic)
@@ -33,6 +36,8 @@ public record ProstheticDto(
             prosthetic.FunctionalityId.Value,
             prosthetic.Functionality == null ? null : FunctionalityDto.FromDomainModel(prosthetic.Functionality),
             prosthetic.AmputationLevelId?.Value,
-            prosthetic.AmputationLevel == null ? null : AmputationLevelDto.FromDomainModel(prosthetic.AmputationLevel)
+            prosthetic.AmputationLevel == null ? null : AmputationLevelDto.FromDomainModel(prosthetic.AmputationLevel),
+            prosthetic.StatusId.Value,
+            prosthetic.Status == null ? null : ProstheticStatusDto.FromDomainModel(prosthetic.Status)
         );
 }
